@@ -1,6 +1,11 @@
 import "./style.scss";
 
-export const Button = ({ onClick, children }: {onClick: () => void, children?: string}) => {
+export interface IButtonProps {
+	onClick: () => void;
+	children?: string;
+}
+
+export const Button = ({ onClick, children }: IButtonProps) => {
 
 	return (
 		<button className="button" onClick={onClick}>{children}</button>

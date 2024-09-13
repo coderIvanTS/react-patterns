@@ -1,11 +1,12 @@
-import React, { useState, FormEvent, ChangeEvent } from 'react';
+import React, { useState, FormEvent, ChangeEvent, memo } from 'react';
 import './style.scss';
+import { UserProps } from '../memberCard/types';
 
 interface FormProps {
-	onUserAddition: (user: any) => void; // Принимаем функцию для обновления состояния верхнего компонента
+	onUserAddition: (user: UserProps) => void; // Принимаем функцию для обновления состояния верхнего компонента
 }
 
-export const Form: React.FC<FormProps> = ({ onUserAddition }) => {
+export const Form: React.FC<FormProps> = memo(({ onUserAddition }) => {
 	const [username, setUsername] = useState<string>('');
 	const [phone, setPhone] = useState<string>('');
 	const [website, setWebsite] = useState<string>('');
@@ -65,4 +66,4 @@ export const Form: React.FC<FormProps> = ({ onUserAddition }) => {
 			<button className='button' type="submit">Submit</button>
 		</form>
 	);
-};
+});
